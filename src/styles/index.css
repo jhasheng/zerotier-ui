@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 220 18% 98%;
+  --panel: 0 0% 100%;
+  --border: 220 13% 90%;
+  --muted: 220 14% 96%;
+  --subtle: 220 9% 46%;
+  --fg: 220 23% 11%;
+  --accent: 28 100% 52%;
+  --accent-fg: 0 0% 100%;
+  --danger: 0 76% 51%;
+  --success: 152 60% 36%;
+  --warn: 38 92% 50%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: 220 18% 8%;
+    --panel: 220 14% 12%;
+    --border: 220 8% 22%;
+    --muted: 220 10% 16%;
+    --subtle: 220 8% 60%;
+    --fg: 220 13% 95%;
+    --accent: 28 100% 56%;
+    --accent-fg: 220 23% 11%;
+    --danger: 0 72% 58%;
+    --success: 152 55% 50%;
+    --warn: 38 92% 60%;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-feature-settings: "cv11", "ss01";
+}
+
+::selection {
+  background-color: hsl(var(--accent) / 0.35);
+}
+
+/* Form reset baseline */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* Scrollbar (subtle) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Focus ring */
+.focus-ring {
+  @apply outline-none ring-2 ring-accent/40 ring-offset-2 ring-offset-bg;
+}
