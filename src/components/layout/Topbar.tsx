@@ -5,6 +5,7 @@ import { useAuthStore } from "@/store/authStore";
 import { Button } from "@/components/primitives/Button";
 import { Dropdown } from "@/components/primitives/DropdownMenu";
 import { ConnectionBadge } from "./ConnectionBadge";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Topbar() {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ export function Topbar() {
           >
             <RotateCw className="h-4 w-4" />
           </Button>
+          <ThemeToggle />
           <Dropdown
             trigger={
               <Button variant="outline" size="sm">

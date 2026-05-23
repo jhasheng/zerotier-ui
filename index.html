@@ -6,6 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
     <title>ZeroTier Controller UI</title>
+    <script>
+      // Pre-paint theme application. Without this, users who selected dark
+      // would see a flash of light before React hydrates and applies the class.
+      (function () {
+        try {
+          var raw = localStorage.getItem("zt-ui:theme");
+          var pref = "system";
+          if (raw) {
+            var parsed = JSON.parse(raw);
+            if (parsed && parsed.state && parsed.state.theme) {
+              pref = parsed.state.theme;
+            }
+          }
+          var systemDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          var dark = pref === "dark" || (pref === "system" && systemDark);
+          if (dark) document.documentElement.classList.add("dark");
+        } catch (e) {
+          // Storage access can throw in privacy modes; fall back to light.
+        }
+      })();
+    </script>
   </head>
   <body class="bg-bg text-fg antialiased">
     <div id="root"></div>

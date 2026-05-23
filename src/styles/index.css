@@ -16,20 +16,21 @@
   --warn: 38 92% 50%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: 220 18% 8%;
-    --panel: 220 14% 12%;
-    --border: 220 8% 22%;
-    --muted: 220 10% 16%;
-    --subtle: 220 8% 60%;
-    --fg: 220 13% 95%;
-    --accent: 28 100% 56%;
-    --accent-fg: 220 23% 11%;
-    --danger: 0 72% 58%;
-    --success: 152 55% 50%;
-    --warn: 38 92% 60%;
-  }
+/* Dark mode is activated by the JS hook adding `.dark` on <html>. The hook
+   resolves the user's 3-state preference (light/dark/system) against the
+   system media query, so we only need a single class selector here. */
+:root.dark {
+  --bg: 220 18% 8%;
+  --panel: 220 14% 12%;
+  --border: 220 8% 22%;
+  --muted: 220 10% 16%;
+  --subtle: 220 8% 60%;
+  --fg: 220 13% 95%;
+  --accent: 28 100% 56%;
+  --accent-fg: 220 23% 11%;
+  --danger: 0 72% 58%;
+  --success: 152 55% 50%;
+  --warn: 38 92% 60%;
 }
 
 html,
