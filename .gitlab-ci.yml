@@ -1,4 +1,4 @@
-image: node:20-alpine
+image: registry.mp.lighthg.com/huajuan-ci-node-22
 
 stages:
   - deploy
