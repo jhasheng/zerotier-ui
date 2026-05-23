@@ -29,7 +29,5 @@ pages:
       - public
     expire_in: 1 week
   rules:
-    # Run on every branch push so the first deploy works without first creating
-    # a default branch / opening an MR. Tighten to `$CI_DEFAULT_BRANCH` once
-    # you've merged to master.
-    - if: $CI_COMMIT_BRANCH
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
